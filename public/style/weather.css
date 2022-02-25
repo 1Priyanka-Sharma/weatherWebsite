@@ -1,0 +1,250 @@
+ /* $ git remote add origin https://github.com/1Priyanka-Sharma/Weather-Forecast.git
+ */
+
+ html {
+   scroll-behavior: smooth;
+   font-size: 98.5%;
+ }
+
+ body {
+   background-color: rgba(42, 59, 78, 255);
+ }
+
+ /* Navbar logo */
+ nav img {
+   height: 27px;
+ }
+
+ .nav-list li a:hover {
+   background-color: rgba(255, 255, 255, 0.116);
+ }
+
+ /* Input-Search bar */
+ input[type='search']:focus {
+   box-shadow: none;
+   border: 2px solid rgb(24, 0, 20);
+   outline-style: solid;
+ }
+
+ /* deg C Button */
+ .highlight {
+   font-weight: bolder;
+   color: black;
+   background-color: rgba(215, 217, 218, 255);
+ }
+
+ /* deg C/F Button */
+ .navbar-brand>button:focus {
+   background-color: rgba(255, 255, 255, 0.836);
+   color: black;
+ }
+
+ /* Search-bar Container */
+ .background-change {
+   background-color: #0009118a;
+ }
+
+ /* Container displaying Weather data */
+ .color-container, .news-col {
+   background-color: rgba(30, 38, 42, 255);
+   border-radius: 6px;
+ }
+
+ /* Weather-Icon */
+ #main-icon,.icon-size {
+   height: 8rem;
+ }
+
+ /* .sub-category-name {
+   color: white;
+   margin: 2rem 0 2rem 6.5rem;
+ } */
+
+ /* Days-block size */
+ .days-container {
+   /* margin-left: 6rem; */
+   background-color: rgb(52, 68, 84) !important;
+   display: inline-block;
+ }
+
+ .news-col {
+   /* background-color: rgb(52, 68, 84) !important; */
+ }
+
+ /* Days-block large-width */
+ .large-width {
+   width: 20rem !important;
+ }
+
+ /* Days-block icon */
+ .today-icon {
+   width: 4.4rem;
+ }
+
+ .today-icon-size {
+   width: 5.4rem !important;
+ }
+
+ /* Days-block temp */
+ .today-temp {
+   font-weight: 700;
+ }
+
+ /* Partly-sunny */
+ .vis-hide {
+   display: none !important;
+ }
+
+ /* Days-block margin Adjustment */
+ .margin-adjust {
+   margin-left: 0.3rem;
+ }
+
+ /* Days-block small size */
+ .days-small-container {
+   width: 10rem;
+   height: 7.5rem;
+ }
+
+ /* Days-block description */
+ .des {
+   text-transform: capitalize;
+ }
+
+
+
+ .responsive-row {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+ }
+
+ .week-list {
+   /* display: grid; */
+   grid-template-columns: 1.2fr 1.2fr 1.2fr;
+   row-gap: 2rem;
+   column-gap: 2rem;
+   min-height: auto;
+   /* padding: 1.5rem; */
+   margin-left: 6rem;
+   margin-right: 6rem;
+   overflow: hidden;
+ }
+
+ .news-list {
+   /* width: auto; */
+   /* margin: auto; */
+   display: grid;
+   grid-template-columns: 1.2fr 1.2fr 1.2fr;
+   row-gap: 2rem;
+   column-gap: 2rem;
+   min-height: auto;
+   /* padding: 1.5rem; */
+   /* margin-left: 6rem; */
+   /* margin-right: 6rem; */
+
+   /* border-color:   !important;  */
+   border: 0.9rem solid rgba(30, 38, 42, 255);
+   overflow: hidden;
+ }
+
+ .news-image {
+   /* background-size: cover !important; */
+   height: 25rem;
+   opacity: 0.8;
+ }
+
+ .news-image:hover {
+   opacity: 0.6;
+   text-decoration: underline;
+
+   /* transition: opacity 0.1s linear; */
+ }
+
+ .card-content {
+   position: absolute;
+   top: 15.5rem;
+   background: linear-gradient(184deg, transparent 0%, rgba(51, 74, 100, 0.8) 70px, rgb(51, 74, 100) 274px);
+   padding: 0;
+ }
+
+ .card-content:hover {
+   text-decoration: underline;
+ }
+
+ .news-link a {
+   color: rgba(215, 217, 218, 255);
+   font-size: 1.1rem;
+ }
+
+ footer {
+   background-color: black;
+   color: white;
+   font-size: 0.8rem;
+ }
+
+ .sub-category-container {
+   padding: 5rem;
+   padding-top: 0;
+   padding-bottom: 0 !important;
+   text-align: center;
+ }
+
+ .sub-category-name {
+   color: white;
+   padding-top: 8rem;
+   padding-bottom: 2rem;
+   font-size: 1.5rem;
+ }
+
+ @media (max-width: 1318px) {
+   .sub-category-container {
+     padding: 0;
+   }
+ }
+
+ @media (max-width: 1166px) {
+
+   .news-list {
+     /* grid-template-columns: 1.2fr 1.2fr; */
+     grid-template-columns: 1.2fr 1.2fr;
+     padding-bottom: 0rem !important;
+   }
+ }
+
+ @media screen and (max-width:990px) {
+   .attributes-resp {
+     font-size: 0.9rem;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-column-gap: 0.5rem;
+     grid-row-gap: 1rem;
+   }
+ }
+
+ @media (max-width: 810px) {
+   .news-list {
+     grid-template-columns: 1.2fr;
+     padding-bottom: 0rem !important;
+     /* margin: 0; */
+   }
+ }
+
+ @media (max-width: 600px) {
+   .week-list {
+     margin: 0;
+   }
+
+   .news-list {
+     grid-template-columns: 1.2fr;
+     padding-bottom: 0rem !important;
+     margin: 0;
+   }
+ }
+
+ @media (max-width: 520px) {
+
+   .responsive-row {
+     grid-template-columns: repeat(2, 1fr);
+     grid-template-rows: repeat(2, 1fr);
+   }
+ }
