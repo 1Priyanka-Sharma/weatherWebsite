@@ -13,10 +13,8 @@ newsr.get('/', async (req, res) => {
         res.render('index', { articles: news_get.data.articles })
 
     } catch (error) {
-        if (error.response) {
+        if (error.response) 
             console.log(error)
-        }
-
     }
 })
 
