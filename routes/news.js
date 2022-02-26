@@ -10,7 +10,6 @@ newsr.get('/', async (req, res) => {
             'apiKey=5ffb1c9fa153496795d36fc58a64d7ba';
 
         const news_get = await axios.get(url)
-        console.log(news_get);
         res.render('index', { articles: news_get.data.articles })
 
     } catch (error) {

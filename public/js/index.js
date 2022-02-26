@@ -1,12 +1,9 @@
-// +2
-// contact-feedback form
-// sabka half-page content.
-// c/f hover-on every outside click effect
-
 const location_var = document.getElementById('location');
 const searchButton = document.getElementById('searchButton');
 const tempc = document.getElementById('temp-c');
 const tempf = document.getElementById('temp-f');
+section = document.querySelectorAll('section');
+scrolltop = document.getElementById('scroll-top');
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -14,10 +11,6 @@ const API_KEY = 'ebfc2ba0b586169cf4f1b6142aaffeb8';
 let unit = 'metric';
 let searchedCity;
 let wunit = 'm/s';
-let op = 'WND';
-// let x = 10;
-// let y = 10;
-// let z = 10;
 
 // Main Menu->Click Event
 let menu = document.getElementsByClassName('nav-link');
@@ -29,6 +22,28 @@ menu.forEach((item) => {
         });
         item.classList.add("active");
     })
+})
+
+window.onload = () => {
+    window.onscroll = (() => {
+        // menu highlight on scroll
+        len = section.length;
+        while (--len && this.scrollY + 320 < section[len].offsetTop) { }
+        menu.forEach(item => item.classList.remove('active'));
+        menu[len].classList.add('active');
+
+        // navBar and scrollToTop button scrolling effect
+        if (this.scrollY > 1)
+            scrolltop.style.display = "block";
+        else
+            scrolltop.style.display = "none";
+    })
+}
+
+// Scroll-up Button
+scrolltop.addEventListener('click', () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 })
 
 // <!-- days-container->clicked; 
@@ -51,7 +66,6 @@ dayscontainer.forEach((item) => {
 
                 daypartly = item.querySelector('.day-partly');
                 daypartly.classList.add('vis-hide');
-
             }
         });
         item.classList.add("large-width");
@@ -98,10 +112,6 @@ function weatherData(searchedCity, API_KEY, unit, wunit) {
         .then(response => response.json())
         .then(data => {
             getWeatherData(data, wunit);
-            //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${API_KEY}&units=${unit}`)
-            // .then(response => response.json())
-            // .then(data => {
-            //     console.log(data);
         })
         .catch(() => {
             alert('No results found.\nTry searching for location.');
@@ -109,7 +119,7 @@ function weatherData(searchedCity, API_KEY, unit, wunit) {
             location.focus();
         });
 }
-// https://tile.openweathermap.org/map/wind/5/30/30.png?appid=ebfc2ba0b586169cf4f1b6142aaffeb8
+
 // Display Weather Data
 function getWeatherData(data, wunit) {
     document.getElementById('place').innerHTML = `<strong> ${data.name}, ${data.sys.country} </strong>`;
@@ -188,24 +198,6 @@ function getDailyWeatherData(data, day) {
         if (day == 7)
             day = 0;
     })
-
-    let todayDate = new Date();
-    todayDate = todayDate.toISOString();
-    var url = 'https://newsapi.org/v2/everything?' +
-        'q=weather AND India&' +
-        'from=todayDate&' +
-        'sortBy=relevancy&' +
-        'apiKey=5ffb1c9fa153496795d36fc58a64d7ba';
-    
-    var req = new Request(url);
-    // fetch(req).then(response => response.json())
-    //     .then(data => {
-    //         displayNews(data);})
-
-
-
-
-
 }
 
 // Display Air Quality
@@ -227,70 +219,4 @@ function getAirqulty(data) {
         default:
             document.getElementById('airq').innerHTML = `${index} Very Poor`;
     }
-}
-
-
-
-
-window.onload = () => {
-    let todayDate = new Date();
-    todayDate = todayDate.toISOString();
-    var url = 'https://newsapi.org/v2/everything?' +
-        'q=weather AND India&' +
-        'from=todayDate&' +
-        'sortBy=relevancy&' +
-        'apiKey=5ffb1c9fa153496795d36fc58a64d7ba';
-    
-        // fetch(https://cors-anywhere.herokuapp.com//https://newsapi.org/v2/everything?q=weather%20AND%20India&from=todayDate&sortBy=relevancy&apiKey=5ffb1c9fa153496795d36fc58a64d7ba',{headers:new Headers({"X-Requested-With":"abcdef"})})
-
-//     var req = new Request(url);
-//     fetch(req).then(response => response.json())
-//         .then(data => {
-//             // displayNews(data);
-//             console.log(data);
-//             let news=data;
-//             let newscol = document.getElementsByClassName('news-col');
-//     newscol = Array.from(newscol);
-//     let i = 0, newscolimage;
-//     newscol.forEach((item) => {
-
-//         newscolimage = item.getElementsByClassName('news-container');
-//         newscolimage = Array.from(newscolimage);
-//         newscolimage[0].innerHTML = `<img src="${news.articles[i].urlToImage}" class='card-img news-image' alt="">`;
-
-//         newslink = item.getElementsByClassName('news-link');
-//         newslink = Array.from(newslink);
-//         newslink[0].innerHTML = `<a href="${news.articles[i].url}" target="_blank"> Read more</a>`;
-
-//         console.log(news.articles[i].title + ' Before');
-//         cardText = item.getElementsByClassName('card-text');
-//         cardText = Array.from(cardText);
-//         cardText[0].innerHTML = `<h4>${news.articles[i].title}</h4>`;
-//         i++;
-//     })
-//         }).catch((err) => {
-//             console.log(err);
-//         })
-// }
-
-// function displayNews(news) {
-
-//     let newscol = document.getElementsByClassName('news-col');
-//     newscol = Array.from(newscol);
-//     let i = 0, newscolimage;
-//     newscol.forEach((item) => {
-
-//         newscolimage = item.getElementsByClassName('news-container');
-//         newscolimage = Array.from(newscolimage);
-//         newscolimage[0].innerHTML = `<img src="${news.articles[i].urlToImage}" class='card-img news-image' alt="">`;
-
-//         newslink = item.getElementsByClassName('news-link');
-//         newslink = Array.from(newslink);
-//         newslink[0].innerHTML = `<a href="${news.articles[i].url}" target="_blank"> Read more</a>`;
-
-//         console.log(news.articles[i].title + ' Before');
-//         cardText = item.getElementsByClassName('card-text');
-//         cardText = Array.from(cardText);
-//         cardText[0].innerHTML = `<h4>${news.articles[i].title}</h4>`;
-//     })
 }
