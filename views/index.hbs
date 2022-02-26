@@ -305,92 +305,28 @@
             </div>
         </div>
     </div>
-    <!-- NEWS API   995px{}-->
+
+    <!-- NEWS API-->
     <div class="sub-category-container">
         <div class="sub-category-name" id="news"> <strong> TRENDING NEWS</strong></div>
 
         <div class="news-list">
 
+            {{#each articles as | val key| }}
             <div class=" card text-white news-col">
                 <div class="news-container">
-                    <img src="images/icon3.png" class="card-img" alt="...">
+                    <img src={{val.urlToImage}} class="card-img news-image" alt="...">
                 </div>
                 <div class="card-img-overlay card-content">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="news-link"> <a href="#" target="_blank"> Read more</a> </p>
+                    <p class="card-text">
+                    <h6>{{val.title}}</h6>
+                    </p>
+                    <p class="news-link"> <a href={{val.url}} target="_blank"> Read more</a> </p>
                 </div>
             </div>
-
-            <div class=" card text-white news-col">
-                <div class="news-container">
-                    <img src="images/icon3.png" class="card-img" alt="...">
-                </div>
-                <div class="card-img-overlay card-content">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="news-link"> <a href="#" target="_blank"> Read more</a> </p>
-                </div>
-            </div>
-
-            <div class=" card text-white news-col">
-                <div class="news-container">
-                    <img src="images/icon3.png" class="card-img" alt="...">
-                </div>
-                <div class="card-img-overlay card-content">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="news-link"> <a href="#" target="_blank"> Read more</a> </p>
-                </div>
-            </div>
-
-            <div class=" card text-white news-col">
-                <div class="news-container">
-                    <img src="images/icon3.png" class="card-img" alt="...">
-                </div>
-                <div class="card-img-overlay card-content">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="news-link"> <a href="#" target="_blank"> Read more</a> </p>
-                </div>
-            </div>
-
-            <div class=" card text-white news-col">
-                <div class="news-container">
-                    <img src="images/icon3.png" class="card-img" alt="...">
-                </div>
-                <div class="card-img-overlay card-content">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="news-link"> <a href="#" target="_blank"> Read more</a> </p>
-                </div>
-            </div>
-
-            <div class=" card text-white news-col">
-                <div class="news-container">
-                    <img src="images/icon3.png" class="card-img" alt="...">
-                </div>
-                <div class="card-img-overlay card-content">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="news-link"> <a href={{articles}} target="_blank"> Read more</a> </p>
-                </div>
-            </div>
-
+            {{/each}}
         </div>
     </div>
-
-
-
-{{!-- {{each articles}}
-    <li>{{this.article.url}}</li>
-{{/each}} --}}
 
     <!-- Footer Section -->
     <footer class="d-flex justify-content-center mt-3 py-3">
